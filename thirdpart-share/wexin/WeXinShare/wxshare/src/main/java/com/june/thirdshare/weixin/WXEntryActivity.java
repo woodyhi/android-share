@@ -26,7 +26,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        api = WXAPIFactory.createWXAPI(this, BuildConfig.WX_APP_ID, false);
+        api = WXAPIFactory.createWXAPI(this, WxShare.APP_ID, false);
 
         try {
             Intent intent = getIntent();

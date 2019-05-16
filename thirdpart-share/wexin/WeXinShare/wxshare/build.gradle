@@ -12,8 +12,6 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'WX_APP_ID', '"wxd930ea5d5a258f4f"'
-        buildConfigField 'String', 'WX_APP_SECRET', '"1d6d1d57a3dd063b36d917bc0b44d964"'
     }
 
     buildTypes {
