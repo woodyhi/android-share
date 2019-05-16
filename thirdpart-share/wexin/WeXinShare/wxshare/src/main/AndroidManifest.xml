@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.june.thirdshare.weixin">
+
+    <application>
+        <activity
+            android:name="com.june.thirdshare.weixin.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="${applicationId}">
+
+        </activity>
+
+        <activity-alias
+            android:name="${applicationId}.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:targetActivity="com.june.thirdshare.weixin.WXEntryActivity">
+
+        </activity-alias>
+
+        <receiver
+            android:name="com.june.thirdshare.weixin.AppRegister"
+            android:permission="com.tencent.mm.plugin.permission.SEND">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
