@@ -3,9 +3,9 @@ package com.june.thirdshare;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 
-import com.june.dialog.BottomDialogFragment;
-import com.june.dialog.OnViewCreatedListener;
 import com.june.thirdshare.weixin.WxShare;
+import com.woodyhi.dialog.BottomDialogFragment;
+import com.woodyhi.dialog.OnViewCreatedListener;
 
 public class CommonShare {
 
