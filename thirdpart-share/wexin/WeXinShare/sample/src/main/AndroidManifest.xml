@@ -19,12 +19,6 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="WEXIN_APP_ID"
-            android:value="wxd930ea5d5a258f4f" />
-        <meta-data
-            android:name="WEXIN_APP_SECRET"
-            android:value="1d6d1d57a3dd063b36d917bc0b44d964" />
     </application>
 
 </manifest>

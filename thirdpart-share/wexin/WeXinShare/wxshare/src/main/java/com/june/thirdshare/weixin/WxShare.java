@@ -1,9 +1,7 @@
 package com.june.thirdshare.weixin;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.graphics.BitmapFactory;
+import android.graphics.Bitmap;
 
 import com.june.thirdshare.weixin.type.WebpageShare;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
@@ -18,39 +16,26 @@ public class WxShare {
     private Context context;
     private IWXAPI api;
 
-    public WxShare(Context context) {
+    public WxShare(Context context, String appId, String appSecret) {
         this.context = context;
-        if (APP_ID == null) APP_ID = getMetaDataFromApp(context, "WEXIN_APP_ID");
-        if (APP_SECRET == null) APP_SECRET = getMetaDataFromApp(context, "WEXIN_APP_SECRET");
+        APP_ID = appId;
+        APP_SECRET = appSecret;
         api = WXAPIFactory.createWXAPI(context, APP_ID, true);
     }
 
-    //获取value
-    private String getMetaDataFromApp(Context context, String key) {
-        String value = null;
-        try {
-            ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(),
-                    PackageManager.GET_META_DATA);
-            value = appInfo.metaData.getString(key);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return value;
+    private void share(String webpageUrl, String title, String description, Bitmap thumbBmp, int scene) {
+        new WebpageShare(api).share(webpageUrl, title, description, thumbBmp, scene);
     }
 
-    private void share(int scene) {
-        new WebpageShare(api).share("http://www.qq.com",
-                "WebPage Title WebPage Title WebPage Title",
-                "WebPage Description WebPage Description WebPage Description WebPage Description WebPage Description WebPage Description WebPage Description WebPage Description WebPage Descr",
-                BitmapFactory.decodeResource(context.getResources(), R.drawable.share),
-                scene);
+    public void shareToFriend(String webpageUrl, String title, String description, Bitmap thumbBmp) {
+        share(webpageUrl, title, description, thumbBmp, SendMessageToWX.Req.WXSceneSession);
     }
 
-    public void shareToFriend() {
-        share(SendMessageToWX.Req.WXSceneSession);
+    public void shareToTimeline(String webpageUrl, String title, String description, Bitmap thumbBmp) {
+        share(webpageUrl, title, description, thumbBmp, SendMessageToWX.Req.WXSceneTimeline);
     }
 
-    public void shareToTimeline() {
-        share(SendMessageToWX.Req.WXSceneTimeline);
+    public void shareToCollect(String webpageUrl, String title, String description, Bitmap thumbBmp) {
+        share(webpageUrl, title, description, thumbBmp, SendMessageToWX.Req.WXSceneFavorite);
     }
 }

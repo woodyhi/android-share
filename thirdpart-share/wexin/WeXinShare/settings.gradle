@@ -1,1 +1,1 @@
-include ':sample', ':wxshare'
+include ':sample', ':wxshare', ':thirdshare'
