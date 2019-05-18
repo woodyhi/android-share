@@ -3,10 +3,10 @@ package com.june.thirdshare;
 import android.graphics.Bitmap;
 
 public class ShareInfo {
-    String webPageUrl;
     String title;
     String description;
-    Bitmap bitmap;
+    Bitmap thumbBitmap;
+    String webPageUrl;
 
     public static class Builder {
         private ShareInfo shareInfo;
@@ -30,8 +30,8 @@ public class ShareInfo {
             return this;
         }
 
-        public Builder setBimap(Bitmap bitmap) {
-            shareInfo.bitmap = bitmap;
+        public Builder setThumbBimap(Bitmap bitmap) {
+            shareInfo.thumbBitmap = bitmap;
             return this;
         }
 

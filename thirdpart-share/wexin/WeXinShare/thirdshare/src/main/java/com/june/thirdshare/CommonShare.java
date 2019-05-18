@@ -33,7 +33,7 @@ public class CommonShare {
             @Override
             public void onClick(View v) {
                 new WxShare(view.getContext(), CommonShareConfig.WX_APP_ID, CommonShareConfig.WX_APP_SECRET)
-                        .shareToFriend(shareInfo.webPageUrl, shareInfo.title, shareInfo.description, shareInfo.bitmap);
+                        .shareToFriend(shareInfo.webPageUrl, shareInfo.title, shareInfo.description, shareInfo.thumbBitmap);
                 bottomDialogFragment.dismiss();
             }
         });
@@ -41,7 +41,7 @@ public class CommonShare {
             @Override
             public void onClick(View v) {
                 new WxShare(view.getContext(), CommonShareConfig.WX_APP_ID, CommonShareConfig.WX_APP_SECRET)
-                        .shareToTimeline(shareInfo.webPageUrl, shareInfo.title, shareInfo.description, shareInfo.bitmap);
+                        .shareToTimeline(shareInfo.webPageUrl, shareInfo.title, shareInfo.description, shareInfo.thumbBitmap);
                 bottomDialogFragment.dismiss();
             }
         });
